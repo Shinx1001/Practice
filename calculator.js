@@ -5,5 +5,10 @@ module.exports.sum = (x, y) => {
 
 // https://www.geeksforgeeks.org/subtract-two-numbers-without-using-arithmetic-operators/
 module.exports.minus = (x, y) => {
-    this.sum(x,-y);
+    while (y !== 0) {
+        let borrow = ~x & y;
+        x = x ^ y;
+        y = borrow << 1;
+    }
+    return x;
 };
